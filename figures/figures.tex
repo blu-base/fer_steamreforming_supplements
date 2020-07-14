@@ -1,0 +1,483 @@
+%% MAGIC_COMMENTS - info for compiler
+% !TeX spellcheck = en_US
+% !TeX encoding = utf8
+
+% run draft mode compilation on main document before
+\documentclass[multi=figure]{standalone}
+\usepackage{graphicx}
+\usepackage{varwidth}
+
+%\usepackage{subfig}
+
+%#######################################################################################################################
+% Settings
+% \documentclass[utf8]{frontiersSCNS} % for Science, Engineering and Humanities and Social Sciences articles
+\RequirePackage{inputenc,crop,graphicx,amsmath,array,color,amssymb,flushend,stfloats,amsthm,chngpage,times,datetime,parskip,epstopdf}
+\def\helvetica{\fontfamily{phv}\selectfont}
+\def\helveticaitalic{\fontfamily{phv}\itshape\selectfont}
+\def\helveticabold{\fontfamily{phv}\bfseries\selectfont}
+\def\helveticabolditalic{\fontfamily{phv}\bfseries\itshape\selectfont}
+
+
+% frontiers paper size
+%\setlength{\fpaperheight}{11truein}
+%\setlength{\fpaperwidth}{8.5truein}
+
+\setlength\textwidth{180mm}          % text measure excluding margins
+
+% specific font sizes
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize{12}{12}%
+   \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
+   \abovedisplayshortskip \z@ \@plus3\p@
+   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\normalsize
+\let\@bls\baselineskip
+
+
+%\newcommand\small{%
+%    \@setfontsize\small{11}{12}%
+%    \abovedisplayskip 11\p@ minus 3\p@
+%    \belowdisplayskip \abovedisplayskip
+%    \abovedisplayshortskip \z@ plus 2\p@
+%    \belowdisplayshortskip 4\p@ plus 2\p@ minus2\p@
+%    \def\@listi{\topsep 4.5\p@ plus 2\p@ minus 1\p@
+%       \itemsep \parsep
+%       \topsep 4\p@ plus 2\p@ minus 2\p@}}
+%
+%\newcommand\footnotesize{%
+%    \@setfontsize\footnotesize{8}{10}%
+%    \abovedisplayskip 6\p@ minus 3\p@
+%    \belowdisplayskip\abovedisplayskip
+%    \abovedisplayshortskip \z@ plus 3\p@
+%    \belowdisplayshortskip 6\p@ plus 3\p@ minus 3\p@
+%    \def\@listi{\topsep 3\p@ plus 1\p@ minus 1\p@
+%       \parsep 2\p@ plus 1\p@ minus 1\p@\itemsep \parsep}}
+
+%\def\scriptsize{\@setfontsize\scriptsize{11pt}{11pt}}
+%\def\tiny{\@setfontsize\tiny{10pt}{11pt}}
+%\def\large{\@setfontsize\large{13pt}{14pt}}
+%\def\Large{\@setfontsize\Large{14pt}{16}}
+%\def\LARGE{\@setfontsize\LARGE{15pt}{17pt}}
+%\def\huge{\@setfontsize\huge{22pt}{22pt}}
+%\def\Huge{\@setfontsize\Huge{30pt}{30pt}}
+
+% Line spacing
+\setlength\lineskip{1\p@}
+\setlength\normallineskip{1\p@}
+\renewcommand\baselinestretch{}
+\makeatother
+
+
+\usepackage{url,hyperref, microtype,subcaption}
+
+% non template packages
+
+% heavier lines at tables
+\usepackage{booktabs}
+
+
+%% Chemistry Symbols
+\usepackage[version=4]{mhchem}
+
+\usepackage{bm}	%bold greek letters
+
+\usepackage{siunitx}%
+\sisetup{range-units = single,range-phrase={--}}%
+
+
+
+\hypersetup{
+     pdfstartpage={1},
+     pdfpagemode=UseOutlines,
+     colorlinks=true,
+     linkcolor=black,
+     filecolor=black,
+     urlcolor=black,
+     citecolor=black,
+     plainpages=false,
+     unicode}
+
+
+\usepackage[english]{babel}
+% Autorefs (provided by hyperref and babel), so prefix is selected automatically
+\addto\extrasenglish{
+	\def\equationautorefname~#1\null{%
+		equation~(#1)\null}
+	\def\figureautorefname~#1\null{%
+		figure~#1\null}
+	\def\sectionautorefname~#1\null{%
+		section~#1\null}
+	\def\subsectionautorefname~#1\null{%
+		section~#1\null}
+	\def\tableautorefname~#1\null{%
+		table~#1\null}
+}
+
+\hypersetup{	
+	pdftitle={Optimal Tube Bundle Arrangements in Side-fired Methane Steam Reforming Furnaces},
+	pdfauthor={Sebastian Engel, Georg Liesche, Kai Sundmacher, Gábor Janiga, Dominique Thévenin},
+	pdfsubject={Optimal Tube Bundle Arrangements in Side-fired Methane Steam Reforming Furnaces},
+	pdfkeywords={Steam Reforming, Simulation based optimization, CFD, Radiation, Reactor Design}
+}
+
+
+
+% Nomenclature
+%% To create Glossaries, such as Abbreviations, and Nomenclature
+\usepackage[toc,section=section,nonumberlist,nogroupskip,nomain,nopostdot,acronym]{glossaries}
+%When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.
+\usepackage{csquotes}
+
+
+
+% glossary entries with optional arguments
+\glsnoexpandfields%
+\newcommand*{\glsarg}[1][i]{#1}
+%\newcommand*{\glsarg}{i}
+\renewcommand*{\glsentryfmt}{%
+	\let\orgglsarg\glsarg%
+	\ifdefempty\glsinsert%
+	{}%
+	{%
+		\let\glsarg\glsinsert%
+		\let\glsinsert\relax%
+	}%
+	\glsgenentryfmt%
+	\let\glsarg\orgglsarg%
+}
+
+%\usepackage{supertabular}
+\usepackage{glossary-longragged}
+%-------------------- Nomenclature -------------------------
+\newcommand*{\listofsymbols}{
+	%\printglossary[type=symbolslist,style=super]
+		%{\setstretch{0}\printglossary[nogroupskip=true,type=symbolslist]}
+		\setlength{\glsdescwidth}{0.8\linewidth}
+		\printglossary[nogroupskip=true,type=symbolslist,style=longragged]
+}	
+
+%% Glossaries - texstudio's autocomplete doesn't work with nested inputs...
+\newglossary[glg]{symbolslist}{gls}{glo}{Nomenclature} %create add. symbolslist
+\input{nomenclature}
+\makeglossaries%
+
+%%Figures creation
+\usepackage{tikz} 
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{arrows, positioning, calc}
+\usetikzlibrary{plotmarks,fit}
+\usetikzlibrary{decorations.text} % for tilted text labels
+\usepgfplotslibrary{patchplots} %contour plot
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{dateplot}
+\pgfplotsset{
+	discard if not/.style 2 args={
+		x filter/.code={
+			\edef\tempa{\thisrow{#1}}
+			\edef\tempb{#2}
+			\ifx\tempa\tempb
+			\else
+			\def\pgfmathresult{inf}
+			\fi
+		}
+	},
+	% define the layers you need.
+	% (Don't forget to add `main' somewhere in that list!!)
+	layers/my layer set/.define layer set={
+		background,
+		main,
+		lvier,
+		ldrei,
+		lzwei,
+		leins,
+		foreground
+	}{
+		% you could state styles here which should be moved to
+		% corresponding layers, but that is not necessary here.
+		% That is why wo don't state anything here
+	},
+	% activate the newly created layer set
+	set layers=my layer set,
+}
+
+% load `matrix' library so we can use the `matrix of nodes' feature for table-like legend
+\usetikzlibrary{
+	matrix,
+}
+
+% simplify inkscape images import from subdirectories
+\usepackage{import}
+
+%%%\usepackage{color}
+\definecolor{mpired}{RGB}{120, 0, 75}
+\definecolor{mpiblue}{RGB}{51, 165, 195}
+\definecolor{mpigreen}{RGB}{0, 118, 117}
+\definecolor{glblue}{RGB}{39, 109, 255}
+\definecolor{glyellow}{RGB}{252, 243, 200}
+\definecolor{glorange}{RGB}{217, 74, 0}
+\definecolor{khgr beige}{RGB}{236, 233, 212}
+\definecolor{gl ocker}{RGB}{251,230,67}
+\definecolor{mpiblack}{RGB}{56, 60, 60}
+\definecolor{glbrowngreen}{RGB}{220,179,55}
+\definecolor{vstvio150}{RGB}{77,0,62}
+\definecolor{vstvio125}{RGB}{121,10,104}
+\definecolor{vstvio100}{RGB}{148,22,128}
+\definecolor{vstvio075}{RGB}{159,50,142}
+\definecolor{vstvio050}{RGB}{219,141,182}
+\definecolor{vstgre150}{RGB}{64,64,10}
+\definecolor{vstgre125}{RGB}{64,150,13}
+\definecolor{vstgre100}{RGB}{85,184,27}
+\definecolor{vstgre075}{RGB}{113,198,62}
+\definecolor{vstgre050}{RGB}{193,255,38}
+\definecolor{vstyel150}{RGB}{24,18,10}
+\definecolor{vstyel125}{RGB}{66,57,45}
+\definecolor{vstyel100}{RGB}{110,95,75}
+\definecolor{vstyel075}{RGB}{132,114,90}
+\definecolor{vstyel050}{RGB}{155,133,105}
+\definecolor{vstred150}{RGB}{175,91,89}
+\definecolor{vstred125}{RGB}{197,102,100}
+\definecolor{vstred100}{RGB}{239,111,108}
+\definecolor{vstred075}{RGB}{240,124,111}
+\definecolor{vstred050}{RGB}{255,180,130}
+\definecolor{mpiblue150}{RGB}{60, 101, 129}
+\definecolor{mpiblue125}{RGB}{39, 132, 167}
+\definecolor{mpiblue075}{RGB}{121, 196, 223}
+\definecolor{mpiblue050}{RGB}{190, 201, 255}
+
+\pgfplotscreateplotcyclelist{mpiovgucolors}{%
+	vstvio100, every mark/.append style={solid,rotate=90}, mark=triangle*\\%
+	mpiblue, every mark/.append style={solid}, mark=*\\%
+	vstgre100, every mark/.append style={solid}, mark=square*\\%
+	vstyel100, every mark/.append style={solid}, mark=diamond*\\%
+	vstvio050, every mark/.append style={solid},mark=pentagon*\\%
+	mpiblue050, every mark/.append style={solid},mark=triangle*\\%
+	vstgre050,every mark/.append style={solid},mark=square*\\%
+	vstyel050,every mark/.append style={solid},mark=otimes\\%
+	vstvio150, every mark/.append style={solid},mark=triangle, \\%
+	mpiblue150, every mark/.append style={solid},mark=square, \\%
+	vstgre150, every mark/.append style={solid},mark=pentagon\\%
+}
+
+\pgfplotscreateplotcyclelist{mpiovgucolors2d}{%
+	vstvio150, 	every mark/.append style={solid}, mark=star\\%
+	vstvio100, 	every mark/.append style={solid}, mark=star\\%
+	vstvio050, 	every mark/.append style={solid}, mark=star\\%
+	mpiblue150,	every mark/.append style={solid}, mark=otimes\\%
+	mpiblue, 	every mark/.append style={solid}, mark=otimes\\%
+	mpiblue050, every mark/.append style={solid}, mark=otimes\\%
+	vstred150, 	every mark/.append style={solid}, mark=triangle\\%
+	vstred100, 	every mark/.append style={solid}, mark=triangle \\%
+	vstred050, 	every mark/.append style={solid}, mark=triangle \\%
+	vstgre150, 	every mark/.append style={solid}, mark=square\\%
+	vstgre100, 	every mark/.append style={solid}, mark=square\\%
+	vstgre050, 	every mark/.append style={solid}, mark=square\\%
+}
+
+\def\PI{3.1415926535898}
+%###########################################################
+
+%\newcommand\hmmax{0}
+%\newcommand\bmmax{0}
+%
+%\usepackage{boisik}
+%\usepackage[T1]{fontenc}
+%\usepackage[charter]{mathdesign}
+
+% one Image per page
+\makeatletter
+\renewenvironment{figure}%
+{\def\@captype{figure}%
+	\minipage{\textwidth}}%
+{\endminipage}
+\makeatother
+
+\let\efloatseparator=\empty
+%\let\efloatseparator=\newpage
+
+\begin{document}
+\textwidth=85mm
+
+
+%%
+\begin{figure}
+\centering
+\includegraphics[width=85mm]{sources/figure1/MSR_modeling_approach.pdf}
+%\caption{Sketch of a side-fired tube bundle furnace (A) and three different models: the single tube model (B), the radiation-based furnace model (C) and the CFD-based furnace model (D).}%
+%\label{fig:MSR_model_sketch}
+\end{figure}
+\efloatseparator
+%%
+
+\begin{figure}
+	\centering
+\includegraphics[width=85mm]{sources/figure2/singleTubeSketch.pdf}
+%	\caption{Schematic representation of the flow simulations domain for a single reforming tube.}%
+%	\label{f:singleTube_setupSketch}
+\end{figure}
+\efloatseparator
+%%
+
+\begin{figure}
+\centering
+\includegraphics[width=85mm]{sources/figure3/view_factor_comparison.pdf}
+%\caption{View factors between tube $i$ and $j$: \gls{viewfactor}[ij] calculated using~\autoref{eq:view_factor_calculation} (red triangles) and compared with the crossed-strings method (blue circles) versus the distance ratio $\gls{distancefactor}:=\gls{distancestubes}[ij]/\gls{radius}$.}
+%\label{fig:bundle_model_sketch_view}
+\end{figure}
+\efloatseparator
+%%
+
+\begin{figure}
+	\centering
+	\def\svgwidth{85mm}
+	\input{sources/figure4/cfdCaseSketches.pdf_tex}
+%	\caption{
+%		Schematic representation of the furnace geometry and four canonical tube arrangements assessed in the parameter study.
+%		Configurations: line~(\gls{caseA}), staggered~(\gls{caseB}), aligned~(\gls{caseC}), and rectangle~(\gls{caseD}).
+%	}%
+%	\label{f:optGeometrySchematics}
+\end{figure}
+\efloatseparator
+%%
+\textwidth=180mm
+\begin{figure}
+	\centering
+	\input{sources/figure5/smr}
+%	\caption{
+%		Yield of \ce{CO}, \gls{yield}[\ce{CO}] of a single reforming tube, and wall heat flux \gls{heatflux}[\mathrm{wall}] per meter of tube, as result of different wall temperatures $\gls{temp}_{\mathrm{wall}}$ and inner tube radii \gls{radius}.
+%		The left graph contains a zoomed view of the curves at \SI{1200}{\kelvin} as overlayed subplot.
+%	}%
+%	\label{f:singleTube_heatFlux_yield}
+\end{figure}
+\efloatseparator
+%%
+
+\textwidth=85mm
+\begin{figure}
+\centering
+\includegraphics[width=85mm]{sources/figure6/Boltzmann_number.pdf}
+%\caption{Boltzmann number \gls{boltzmannNumber} for three velocities $\gls{vel}_{\mathrm{max}} \in \{0.5, 2, 10\}\si{\meter\per\second}$.}%
+%\label{fig:Boltzmann_number}
+\end{figure}
+\efloatseparator%
+%%
+
+\begin{figure}
+	\centering
+	\input{sources/figure7/heatfluxratio}
+%	\caption{
+%		Radiative heat flux ratio \gls{heatfluxratio} in relation to the mean heat flux per tube~\gls{heatfluxmean}.
+%		The symbol (and its color family) indicates the configuration of the data point.
+%		Shades of the respective color indicate the inner tube radius~\gls{radius}.
+%		The symbol size indicates the mass flow rate~\gls{massflow} of flue gas per reforming tube.
+%	}%
+%	\label{f:heatfluxratio}
+\end{figure}
+\efloatseparator%
+%%
+\textwidth=180mm
+\begin{figure}
+	\centering
+	\input{sources/figure8/matrix}
+%	\caption{
+%		Velocity magnitude (left column) and temperature fields (right column) for the configuration \gls{caseD} at different distance factors with an inner tube radius of $\gls{radius}=\SI{0.063}{\meter}$, and a flue gas mass flow of $\gls{massflow}=\SI{0.03}{\kilogram\per\second\per{tube}}$.
+%	}%
+%	\label{f:matrix}
+\end{figure}
+\efloatseparator
+%%
+\textwidth=85mm
+\begin{figure}
+	\centering
+	\input{sources/figure9/viewfactor_vs_flux}
+%	\caption{
+%		Average view factor \gls{viewfactormean} versus mean heat flux \gls{heatfluxmean}.
+%		The symbol (and its color family) indicates the configuration of the data point.
+%		Shades of the respective color indicate the inner tube radius~\gls{radius}.
+%		Symbol size indicates the mass flow rate~\gls{massflow} of flue gas per reforming tube.
+%	}%
+%	\label{f:viewfactor2meanheatflux}
+\end{figure}
+\efloatseparator
+%%
+
+\begin{figure}
+	\centering
+	\input{sources/figure10/distance_vs_temperature}
+%	\caption{
+%		Mean tube surface temperature of all tubes in the bundle \gls{tempmean} versus distance factor \gls{distancefactor} for staggered and aligned arrangements.
+%		Results from the radiation-based model~\citep{Liesche.2019b} are marked with black symbols of the respective staggered and aligned arrangements.
+%	}%
+%	\label{f:T_sta_vs_ali}
+\end{figure}
+\efloatseparator
+%%
+
+\textwidth=180mm
+\begin{figure}
+	\centering
+	\input{sources/figure11/staggered_comp}%
+%	\caption{
+%		Mean tube surface temperature \gls{tempmean} versus distance factor \gls{distancefactor} for staggered arrangements (\gls{caseB}) based on the radiation model (black) and CFD model (blue) for three different tube radii.
+%		Error bars show the standard deviation of the respective data set.
+%	}%
+%	\label{f:rad_vs_CFD_2}
+\end{figure}
+\efloatseparator
+%%
+
+\textwidth=85mm
+\begin{figure}
+	\centering
+	\input{sources/figure12/total_vs_deltatemp}
+%	\caption{
+%		Mean wall temperature~\gls{tempmean} versus mean heat flux~\gls{heatfluxmean}.
+%		Minimum and maximum temperatures of each simulation are included as pseudo-error bars.
+%		Upper operation limit of tubes (red dotted line) and lower operation limit (black dotted line) are included.
+%		Symbols (and associated color family) indicate the geometrical configuration corresponding to the data point.
+%		Shades of the respective color indicate the inner tube radius~\gls{radius}.
+%	}%
+%	\label{f:T_vs_Q_errorbars}
+\end{figure}
+\efloatseparator
+%%
+
+\textwidth=180mm
+\begin{figure}
+	\centering
+	\input{sources/figure13/distance_vs}
+%	\caption{
+%		The space-time yield \gls{spacetyield}[\ce{CO}] as a function of  the distance factor \gls{distancefactor}---shown for each configuration individually.
+%		The symbol (and its color family) indicates the configuration of the data point.
+%		Shades of the respective color indicate the inner tube radius~\gls{radius}.
+%		Symbol size indicates the mass flow rate~\gls{massflow} of flue gas per reforming tube.
+%	}%
+%	\label{f:distanceVs}
+\end{figure}
+\efloatseparator
+%%
+\textwidth=85mm
+\begin{figure}
+	\centering
+	\input{sources/figure14/optHeatFluxEfficiency}
+%	\caption{
+%		Total heat flux \gls{heatfluxtotalpermflow} scaled by the mass flow of flue gas in relation to the mean heat flux per tube \gls{heatfluxmean}.
+%		The dashed lines with labels indicate configurations with equal flue gas inflow \gls{massflow} per tube in \si{\kilogram\per\second\per{tube}}.
+%		The symbol (and its color family) indicates the configuration of the data point.
+%		Shades of the respective color indicate the inner tube radius~\gls{radius}.
+%	}%
+%	\label{f:opt_heatFluxEfficiency}
+\end{figure}
+\efloatseparator
+%%
+
+
+
+\end{document}
+
+

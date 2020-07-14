@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+%\pgfplotsset{set layers=default};
+\tikzset{
+every pin/.style={fill=white,rectangle,rounded corners=1pt},
+small dot/.style={fill=black,circle,scale=0.3}
+}
+    \begin{axis}[
+	        width=\linewidth, height=0.5*\linewidth,     % size of the image
+	        grid = both,
+	     	grid style={line width=.1pt, draw=gray!10},	     	
+	        xmode=log,log basis x=10,
+	        xmin=10000,     % start the diagram at this x-coordinate
+	        xmax=3000000,    % end   the diagram at this x-coordinate
+	        ymin=51000,     % start the diagram at this y-coordinate
+	        ymax=56000,   % end   the diagram at this y-coordinate
+	        axis background/.style={fill=white},
+	        xlabel=Amount of cells (-),
+	        ylabel={\gls{heatfluxtotal} / \si{\watt}},
+	        cycle list name=mpiovgucolors,
+	        tick align=inside
+        ]
+   
+   \node[small dot,pin=110:{$(8.24\cdot10^5,51164)$}] at (axis cs:823618,51164) {};
+
+      % import the correct data from a CSV file
+		\addplot table [id=exp]{figures/meshDep/meshDependency_TotalHeatTransfer_Cells.csv};
+
+		
+    \end{axis} 
+
+\end{tikzpicture}

@@ -1,0 +1,163 @@
+\begin{tikzpicture}
+\begin{axis}[
+		name=plot2,
+		anchor=south west,
+		width=36mm, 
+		height=80mm,     % size of the image
+		scale only axis,
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},	     	
+		xmin=.9,     % start the diagram at this x-coordinate
+		xmax=6.5,    % end   the diagram at this x-coordinate	    
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=14,   % end   the diagram at this y-coordinate
+		axis background/.style={fill=white},
+		tick align=inside,
+		xlabel={\gls{distancefactor} / --},
+		ylabel={\gls{spacetyield}[\ce{CO}] / \si{\mol\per\cubic\meter\per\second}},
+		minor x tick num=1,
+		minor y tick num=4,
+		cycle list name=mpiovgucolors2d,
+		% change `clip mode' to `individual' to avoid unwanted clipping
+		clip mode=individual,
+	]
+	%% import the correct data from a CSV file
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseA-0.04.csv};
+		\label{p:dvall_a4}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseA-0.063.csv};
+		\label{p:dvall_a6}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseA-0.08.csv};
+		\label{p:dvall_a8}
+\end{axis};
+\begin{axis}[
+		name=plot3,
+		at={($(plot2.south east)+(4mm,0)$)},
+		anchor=south west,
+		width=36mm, 
+		height=80mm,     % size of the image
+		scale only axis,
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},	     	
+		xmin=.9,     % start the diagram at this x-coordinate
+		xmax=6.5,    % end   the diagram at this x-coordinate	    
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=14,   % end   the diagram at this y-coordinate
+		axis background/.style={fill=white},
+		tick align=inside,
+		xlabel={\gls{distancefactor} / --},
+		yticklabels=\empty,
+		minor x tick num=1,
+		minor y tick num=4,
+		cycle list name=mpiovgucolors2d,
+		cycle list shift=3,
+		% change `clip mode' to `individual' to avoid unwanted clipping
+		clip mode=individual,
+	]
+	%% import the correct data from a CSV file
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseB-0.04.csv};
+		\label{p:dvall_b4}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseB-0.063.csv};
+		\label{p:dvall_b6}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseB-0.08.csv};
+		\label{p:dvall_b8}
+\end{axis};
+\begin{axis}[
+		name=plot4,
+		at={($(plot3.south east)+(4mm,0)$)},
+		anchor=south west,
+		width=36mm, 
+		height=80mm,     % size of the image
+		scale only axis,
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},	     	
+		xmin=.9,     % start the diagram at this x-coordinate
+		xmax=6.5,    % end   the diagram at this x-coordinate	    
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=14,   % end   the diagram at this y-coordinate
+		axis background/.style={fill=white},
+		tick align=inside,
+		xlabel={\gls{distancefactor} / --},
+		minor x tick num=1,
+		minor y tick num=4,
+		yticklabels=\empty,
+		cycle list name=mpiovgucolors2d,
+		cycle list shift=6,
+		% change `clip mode' to `individual' to avoid unwanted clipping
+		clip mode=individual,
+	]
+	%% import the correct data from a CSV file
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseC-0.04.csv};
+		\label{p:dvall_c4}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseC-0.063.csv};
+		\label{p:dvall_c6}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseC-0.08.csv};
+		\label{p:dvall_c8}
+	
+\end{axis};
+\begin{axis}[
+		name=plot5,
+		at={($(plot4.south east)+(4mm,0)$)},
+		anchor=south west,
+		width=36mm, 
+		height=80mm,     % size of the image
+		scale only axis,
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},	     	
+		xmin=.9,     % start the diagram at this x-coordinate
+		xmax=6.5,    % end   the diagram at this x-coordinate	    
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=14,   % end   the diagram at this y-coordinate
+		axis background/.style={fill=white},
+		tick align=inside,
+		xlabel={\gls{distancefactor} / --},
+		minor x tick num=1,
+		minor y tick num=4,
+		yticklabels=\empty,
+		cycle list name=mpiovgucolors2d,
+		cycle list shift=9,
+		% change `clip mode' to `individual' to avoid unwanted clipping
+		clip mode=individual,
+	]
+	%% import the correct data from a CSV file
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseD-0.04.csv};
+		\label{p:dvall_d4}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseD-0.063.csv};
+		\label{p:dvall_d6}
+	\addplot+[only marks, on layer=leins, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[col sep=semicolon,x=DistanceFactor,y=Average Space Time Yield of CO (mol/m3/s), meta=MassFlowPerTube (kg/s)] {sources/figure13/resultsCaseD-0.08.csv};
+		\label{p:dvall_d8}
+	\coordinate (c3) at (rel axis cs:1,1);
+
+\node[
+	rectangle,
+	draw=black, thin,
+	fill=white,
+	anchor= north east,
+	inner sep=1pt,
+	on layer=foreground,
+	] at (c3) {
+	\tikz[node distance=0.1cm, fill=white]{
+		\node (L1) [inner sep=0pt] {
+			\renewcommand\arraystretch{0.5}\setlength{\tabcolsep}{2pt}
+			\begin{tabular}{rccc}
+				\scalebox{.6}{\gls{radius} / \si{\meter}}& \scalebox{.6}{0.04} & \scalebox{.6}{0.063} & \scalebox{.6}{0.08} \\
+				\scalebox{.6}{line}		& \ref*{p:dvall_a4} 	& \ref*{p:dvall_a6} 	& \ref*{p:dvall_a8} \\
+				\scalebox{.6}{staggered}	& \ref*{p:dvall_b4} 	& \ref*{p:dvall_b6} 	& \ref*{p:dvall_b8} \\
+				\scalebox{.6}{aligned}		& \ref*{p:dvall_c4} 	& \ref*{p:dvall_c6} 	& \ref*{p:dvall_c8} \\
+				\scalebox{.6}{rectangle} 	& \ref*{p:dvall_d4} 	& \ref*{p:dvall_d6} 	& \ref*{p:dvall_d8} \\
+			\end{tabular}
+		};
+		\node (L2) [right=1cm and 0cm of L1, anchor=west,inner sep=0pt]  {\rotatebox{90}{\scalebox{.6}{\gls{massflow} / \si{\kilogram\per\second\per{tube}}}}};
+		\node (L3) [right of=L2, anchor=west] {
+			\tikz[]{
+				\draw(0,0)--(0,2.4);
+				\foreach \y/\ytext in {0/~,.4/0.01,.8/~,1.2/0.02,1.6/~,2.0/0.03,2.4/~}
+				\draw(-2pt,\y)--(2pt,\y) node[right] {\scalebox{.4}{\ytext}};
+				\foreach \y/\ytext in {0/1.00pt,.4/1.41pt,.8/1.73pt,1.2/1.99pt,1.6/2.23pt,2.0/2.44pt,2.4/2.64pt}
+				\draw[black!40] (-6pt,\y) circle (\ytext);
+
+			}
+		};
+	}
+};
+\end{axis}
+\end{tikzpicture}

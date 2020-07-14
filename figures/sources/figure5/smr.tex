@@ -1,0 +1,131 @@
+\begin{tikzpicture}
+    \begin{axis}[
+			name=plot1,
+	        width=85mm,
+			height=60mm,     % size of the image
+	        grid = major,
+	     	grid style={line width=.1pt, draw=gray!10},	     	
+	        xmin=800,     % start the diagram at this x-coordinate
+	        xmax=1800,    % end   the diagram at this x-coordinate	    
+	        xtick={800,1050,...,1800},
+	        ymin=0.001,     % start the diagram at this y-coordinate
+	        ymax=1,   % end   the diagram at this y-coordinate
+	        ytick distance=0.2,
+			minor y tick num=1,
+			minor x tick num=4,
+%	        ymode=log,
+	        axis background/.style={fill=white},
+			xlabel={$\gls{temp}_{\mathrm{wall}}$ / \si{\kelvin}},
+			ylabel={$\gls{yield}[\ce{CO}]$ / --},
+	        tick align=inside,
+	        cycle list name=mpiovgucolors,
+	        smooth,
+        ]
+   
+      % import the correct data from a CSV file
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_008.csv};	
+			\label{p:smr8}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_007.csv};
+			\label{p:smr7}
+%		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_006.csv};
+%			\label{p:smr6}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_0063.csv};
+			\label{p:smr63}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_005.csv};
+			\label{p:smr5}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_004.csv};
+			\label{p:smr4}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_003.csv};
+			\label{p:smr3}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_002.csv};		
+			\label{p:smr2}
+		\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_001.csv};
+			\label{p:smr1}
+		\coordinate (c1) at (rel axis cs:0,1);
+	\end{axis};
+	\begin{axis}[
+		name=plot1detail,
+		width=30mm,
+		height=40mm,
+		grid = both,
+		grid style={line width=.1pt, draw=gray!10},	     	
+		xmin=1150,     % start the diagram at this x-coordinate
+		xmax=1250,    % end   the diagram at this x-coordinate	    
+		xtick={1150,1250},
+		minor x tick num=1,
+		ymin=0.58,     % start the diagram at this y-coordinate
+		ymax=0.66,   % end   the diagram at this y-coordinate
+		ytick distance=0.05,
+		minor y tick num=4,
+		%	        ymode=log,
+		axis background/.style={fill=white},
+	%    xlabel=Wall temperature ($K$),
+	%    ylabel=$Y_{\ce{CO}}$ (-),
+		tick align=inside,
+		ticklabel style = {font=\scriptsize},
+		cycle list name=mpiovgucolors,    
+	%    legend pos=outer north east,
+    	xshift=45mm,yshift=8mm % <-
+		]
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_008.csv};	
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_007.csv};
+%			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_006.csv};
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_0063.csv};
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_005.csv};
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_004.csv};
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_003.csv};
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_002.csv};		
+			\addplot table[x=WallTemperature,y=Yield_CO_outlet,col sep=comma] {sources/figure5/SMR_C_TubeRad_001.csv};
+	\end{axis};%
+	%
+	\begin{axis}[
+		name=plot2,
+		at={($(plot1.east)+(4pc,0)$)},
+		anchor=west,
+		width=85mm,
+		height=60mm,
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},	     	
+		xmin=800,     % start the diagram at this x-coordinate
+		xmax=1800,    % end   the diagram at this x-coordinate	    
+		xtick={800,1050,...,1800},
+		minor x tick num=4,
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=70,   % end   the diagram at this y-coordinate
+		%axis background/.style={fill=white},
+		xlabel={$\gls{temp}_{\mathrm{wall}}$ / \si{\kelvin}},
+		ylabel={$\gls{heatflux}[\mathrm{wall}]$ / \si{\kilo\watt\per\meter}},
+		tick align=inside,
+		cycle list name=mpiovgucolors,
+		smooth,
+	]
+
+		% import the correct data from a CSV file
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_008.csv};
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_007.csv};
+%		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_006.csv};
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_0063.csv};
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_005.csv};
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_004.csv};
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_003.csv};
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_002.csv};		
+		\addplot table[x=WallTemperature,y expr=\thisrow{TotalHeatFlux}*-1/1000/12.5,col sep=comma] {sources/figure5/SMR_C_TubeRad_001.csv};
+
+		\coordinate (c2) at (rel axis cs:1,1);
+	\end{axis};%
+	\coordinate (c3) at ($(c1)!.5!(c2)$);
+
+	\node[
+		%at={($(plot1.south east)+(0.05\linewidth,-2cm)$)},
+		below,
+		%anchor=north,
+		rectangle,draw=black,thin,
+		] at (c3 |- current bounding box.south)
+		{
+			\begin{tabular}{rcccccccc}
+				\gls{radius}/\si{\meter} &	0.01 & 0.02 & 0.03 & 0.04 & 0.05 & 0.063 & 0.07 & 0.08 \\
+				&	\ref*{p:smr1} & \ref*{p:smr2} & \ref*{p:smr3} & \ref*{p:smr4} & \ref*{p:smr5} & \ref*{p:smr63} & \ref*{p:smr7} & \ref*{p:smr8} \\
+			\end{tabular}
+		};%
+			
+\end{tikzpicture}

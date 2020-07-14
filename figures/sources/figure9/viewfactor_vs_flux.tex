@@ -1,0 +1,89 @@
+
+\usetikzlibrary{plotmarks,fit}
+\begin{tikzpicture}
+%\pgfplotsset{set layers=default};
+\begin{axis}[
+		width=80mm,
+		height=60mm,     % size of the image
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},
+		xmin=4000,     % start the diagram at this x-coordinate
+		xmax=28000,    % end   the diagram at this x-coordinate
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=0.7,   % end   the diagram at this y-coordinate
+		axis background/.style={fill=white},
+		xlabel={\gls{heatfluxmean} / \si{\watt}},
+		ylabel={\gls{viewfactormean} / --},
+		ylabel style={align=center},
+		tick align=inside,
+		cycle list name=mpiovgucolors2d,
+		scaled x ticks=true,
+		every x tick label/.append style={alias=XTick,inner xsep=0pt},
+		every x tick scale label/.style={at=(XTick.base east),anchor=base west},
+		% change `clip mode' to `individual' to avoid unwanted clipping
+		clip mode=individual,
+	]
+
+	%% import the correct data from a CSV file
+	\addplot+[scatter=true,only marks, on layer=leins,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseA-0.04.csv};
+		\label{p:vfvmhf_a4}
+	\addplot+[scatter=true,only marks, on layer=leins,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseA-0.063.csv};
+		\label{p:vfvmhf_a6}
+	\addplot+[scatter=true,only marks, on layer=leins,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseA-0.08.csv};
+		\label{p:vfvmhf_a8}
+	\addplot+[scatter=true,only marks, on layer=lzwei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseB-0.04.csv};
+		\label{p:vfvmhf_b4}
+	\addplot+[scatter=true,only marks, on layer=lzwei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseB-0.063.csv};
+		\label{p:vfvmhf_b6}
+	\addplot+[scatter=true,only marks, on layer=lzwei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseB-0.08.csv};
+		\label{p:vfvmhf_b8}
+	\addplot+[scatter=true,only marks, on layer=ldrei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseC-0.04.csv};
+		\label{p:vfvmhf_c4}
+	\addplot+[scatter=true,only marks, on layer=ldrei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseC-0.063.csv};
+		\label{p:vfvmhf_c6}
+	\addplot+[scatter=true,only marks, on layer=ldrei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseC-0.08.csv};
+		\label{p:vfvmhf_c8}
+	\addplot+[scatter=true,only marks, on layer=lvier,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseD-0.04.csv};
+		\label{p:vfvmhf_d4}
+	\addplot+[scatter=true,only marks, on layer=lvier,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseD-0.063.csv};
+		\label{p:vfvmhf_d6}
+	\addplot+[scatter=true,only marks, on layer=lvier,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=Approximated View Factor Per Tube (-),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure9/resultsCaseD-0.08.csv};
+		\label{p:vfvmhf_d8}
+
+	\coordinate (xcenter) at (axis description cs:0.5,0);
+\end{axis};
+
+%% Multi legend
+\node[
+below,
+rectangle,
+draw=black, thin,
+inner sep=1pt,
+] at (xcenter |- current bounding box.south) {
+	\tikz{
+		\node (L1) {
+			\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{3pt}
+			\begin{tabular}{rccc}
+				\rotatebox{90}{~\rotatebox{-90}{\scriptsize \gls{radius} / \si{\meter}}}& \rotatebox{90}{\scriptsize 0.04} & \rotatebox{90}{\scriptsize 0.063} & \rotatebox{90}{\scriptsize 0.08} \\
+			\scriptsize  line 		& \ref*{p:vfvmhf_a4} 	& \ref*{p:vfvmhf_a6} 	& \ref*{p:vfvmhf_a8} \\
+			\scriptsize staggered 	& \ref*{p:vfvmhf_b4} 	& \ref*{p:vfvmhf_b6} 	& \ref*{p:vfvmhf_b8} \\
+			\scriptsize aligned 		& \ref*{p:vfvmhf_c4} 	& \ref*{p:vfvmhf_c6} 	& \ref*{p:vfvmhf_c8} \\
+			\scriptsize rectangle 	& \ref*{p:vfvmhf_d4} 	& \ref*{p:vfvmhf_d6} 	& \ref*{p:vfvmhf_d8} \\
+			\end{tabular}
+		};
+		\node[right of=L1,xshift=1cm,anchor=west] {
+			\tikz[]{
+				\draw(0,0)--(0,1.5);
+				\foreach \y/\ytext in {0/~,0.25/0.01,0.50/~,0.75/0.02,1.00/~,1.25/0.03,1.50/~}
+				\draw(-2pt,\y)--(2pt,\y) node[right] {\tiny\ytext};
+				
+				\foreach \y/\ytext in {0/1.00pt,.25/1.41pt,.50/1.73pt,.75/1.99pt,1.00/2.23pt,1.25/2.44pt,1.50/2.64pt}
+				\draw[black!40] (-6pt,\y) circle (\ytext);
+				
+				\node[anchor=south,rotate=90,inner sep=0pt] at (-15pt,0.75) {\scriptsize\gls{massflow} / \si{\kilogram\per\second\per{tube}}}
+			}
+		};
+	}
+};
+
+\end{tikzpicture}

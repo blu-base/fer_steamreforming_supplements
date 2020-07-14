@@ -1,0 +1,74 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			width=16.5pc, 
+			height=15pc,     % size of the image
+			grid = major,
+			grid style={line width=.1pt, draw=gray!10},	     	
+			xmin=1.2,     % start the diagram at this x-coordinate
+			xmax=4.3,    % end   the diagram at this x-coordinate	    
+			ymin=900,     % start the diagram at this y-coordinate
+			ymax=1100,   % end   the diagram at this y-coordinate
+			axis background/.style={fill=white},
+			xlabel={\gls{distancefactor} / --},
+			ylabel={\gls{tempmean} / \si{\kelvin}},
+			ylabel style={align=center},
+			tick align=inside,
+			minor y tick num=3,
+			minor x tick num=3,
+			% change `clip mode' to `individual' to avoid unwanted clipping
+			%clip mode=individual,
+			]
+
+			%% import the correct data from a CSV file
+			\addplot+[only marks, on layer=lzwei, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}, mpiblue, 	every mark/.append style={solid}, mark=otimes]  table[col sep=semicolon,x=DistanceFactor,y=MeanTubeTemps(K), meta=MassFlowPerTube (kg/s)] {sources/figure10/resultsCaseB-0.063.csv};
+			\label{p:dvmtb6}
+			\addplot+[only marks, on layer=ldrei, scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={},vstred100, 	every mark/.append style={solid}, mark=triangle]  table[col sep=semicolon,x=DistanceFactor,y=MeanTubeTemps(K), meta=MassFlowPerTube (kg/s)] {sources/figure10/resultsCaseC-0.063.csv};
+			\label{p:dvmtc6}
+			\addplot+[only marks, on layer=leins, black, every mark/.append style={solid}, mark=otimes, mark size=1.41pt] table[col sep=semicolon,x=DistanceFactor, y=MeanTemperature,] {sources/rad_model_aligned.csv};
+			\label{p:dvmt_mb}
+			\addplot+[only marks, on layer=leins, black, every mark/.append style={solid}, mark=triangle, mark size=1.41pt] table[col sep=semicolon,x=DistanceFactor, y=MeanTemperature,] {sources/rad_model_staggered.csv};
+			\label{p:dvmt_mc}
+
+
+			\coordinate (xcenter) at (axis description cs:0.5,0.98); 
+			
+			\node [anchor=east]at (rel axis cs:1,0.08) {\scalebox{.6}{$0.005$}};
+			\node [anchor=east]at (rel axis cs:1,0.35) {\scalebox{.6}{$0.010$}};
+			\node [anchor=east]at (rel axis cs:1,0.63) {\scalebox{.6}{$0.015$}};
+	\end{axis};
+	% Multi legend
+	\node[
+		below,
+		rectangle,
+		draw=black, thin,
+		fill=white,
+		inner sep=1pt,
+	%] at (xcenter |- current bounding box.south) {
+		anchor=north,
+	] at (xcenter) {
+		\tikz{
+			\node (L1) {
+				\renewcommand\arraystretch{0.5}\setlength{\tabcolsep}{3pt}
+				\begin{tabular}{rcc}
+					& \scalebox{.6}{CFD} & \scalebox{.6}{Liesche (2019)} \\
+					\scalebox{.6}{staggered} 	& \ref*{p:dvmtb6} & \ref*{p:dvmt_mb} \\
+					\scalebox{.6}{aligned} 		& \ref*{p:dvmtc6} & \ref*{p:dvmt_mc}\\
+				\end{tabular}
+				};
+				\node[right of=L1,xshift=2pc,anchor=west] {
+					\tikz[]{
+						\draw(0,0)--(1,0);
+						\foreach \x/\xtext in {0/0.005,0.5/0.010,1/0.015}
+						\draw(\x,2pt)--(\x,-2pt) node[below,anchor=north] {\scalebox{.4}{\xtext}};
+
+						\foreach \x/\xtext in {0/1.00pt,.5/1.41pt,1/1.73pt}
+						\draw[black!40] (\x,6pt) circle (\xtext);
+
+						\node[anchor=south,inner sep=0pt] at (0.5,10pt) {\scalebox{.6}{\gls{massflow} / \si{\kilogram\per\second\per{tube}}}};
+					}
+				};
+			}
+		};
+
+
+\end{tikzpicture}

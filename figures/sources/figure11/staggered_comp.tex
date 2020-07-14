@@ -1,0 +1,119 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			name=plot1,
+			width=45mm,
+			height=45mm,     % size of the image
+			scale only axis=true,
+			grid = major,
+			grid style={line width=.1pt, draw=gray!10},	     	
+			xmin=1.8,     % start the diagram at this x-coordinate
+			xmax=6.3,    % end   the diagram at this x-coordinate	    
+			ymin=900,     % start the diagram at this y-coordinate
+			ymax=1150,   % end   the diagram at this y-coordinate
+			axis background/.style={fill=white},
+			xlabel={\gls{distancefactor} / --},
+			ylabel={\gls{tempmean} / \si{\kelvin}},
+			ylabel style={align=center},
+			tick align=inside,
+			minor y tick num=1,
+			minor x tick num=1,
+			% change `clip mode' to `individual' to avoid unwanted clipping
+			clip mode=individual,
+			]
+
+			%% import the correct data from a CSV file
+			\addplot+[scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={},mpiblue150, every mark/.append style={solid}, mark=otimes, error bars/.cd, y dir=both, y explicit,]  table[col sep=semicolon,x=DistanceFactor,y=MeanTubeTemps(K), meta=MassFlowPerTube (kg/s), y error=stdTubeTemps(K)] {sources/figure11/resultsCaseB-0.04.csv};
+			\label{p:teb_b4};
+			\addplot+[black, every mark/.append style={solid}, mark=otimes, mark size=1.41pt, error bars/.cd, y dir=both, y explicit, ] table[col sep=comma,x=distanceFactor, y=meanTemp,y error=meanTempSD] {sources/figure11/rad_results_staggered_040_transposed.csv};
+	\end{axis};
+	\begin{axis}[
+			name=plot2,
+			at={($(plot1.south east)+(1pc,0)$)},
+			anchor=south west,
+			width=45mm,
+			height=45mm,     % size of the image
+			scale only axis=true,
+			grid = major,
+			grid style={line width=.1pt, draw=gray!10},	     	
+			xmin=1.2,     % start the diagram at this x-coordinate
+			xmax=4.3,    % end   the diagram at this x-coordinate	    
+			ymin=900,     % start the diagram at this y-coordinate
+			ymax=1050,   % end   the diagram at this y-coordinate
+			axis background/.style={fill=white},
+			xlabel={\gls{distancefactor} / --},
+			tick align=inside,
+			minor y tick num=1,
+			minor x tick num=1,
+%			ylabel={\gls{tempmean} / \si{\kelvin}},
+%			ylabel style={align=center},
+			yticklabels=\empty,
+			% change `clip mode' to `individual' to avoid unwanted clipping
+			clip mode=individual,
+			]
+
+			%% import the correct data from a CSV file
+			\addplot+[scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={},mpiblue, every mark/.append style={solid}, mark=otimes, error bars/.cd, y dir=both, y explicit,]  table[col sep=semicolon,x=DistanceFactor,y=MeanTubeTemps(K), meta=MassFlowPerTube (kg/s), y error=stdTubeTemps(K)] {sources/figure11/resultsCaseB-0.063.csv};
+			\label{p:teb_b6};
+			\addplot+[black, every mark/.append style={solid}, mark=otimes, mark size=1.41pt, error bars/.cd, y dir=both, y explicit, ] table[col sep=comma,x=distanceFactor, y=meanTemp,y error=meanTempSD] {sources/figure11/rad_results_staggered_063_transposed.csv};
+				\label{p:teb_ref};
+	\end{axis};
+	\begin{axis}[
+			name=plot3,
+			at={($(plot2.south east)+(1pc,0)$)},
+			anchor=south west,
+			width=45mm,
+			height=45mm,     % size of the image
+			scale only axis=true,
+			grid = major,
+			grid style={line width=.1pt, draw=gray!10},	     	
+			xmin=1,     % start the diagram at this x-coordinate
+			xmax=3.5,    % end   the diagram at this x-coordinate	    
+			ymin=900,     % start the diagram at this y-coordinate
+			ymax=1150,   % end   the diagram at this y-coordinate
+			axis background/.style={fill=white},
+			xlabel={\gls{distancefactor} / --},
+			tick align=inside,
+			minor y tick num=1,
+			minor x tick num=1,
+			yticklabels=\empty,
+			% change `clip mode' to `individual' to avoid unwanted clipping
+			clip mode=individual,
+			]
+
+			%% import the correct data from a CSV file
+			\addplot+[scatter=true, point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={},mpiblue050, every mark/.append style={solid}, mark=otimes, error bars/.cd, y dir=both, y explicit,]  table[col sep=semicolon,x=DistanceFactor,y=MeanTubeTemps(K), meta=MassFlowPerTube (kg/s), y error=stdTubeTemps(K)] {sources/figure11/resultsCaseB-0.08.csv};
+			\label{p:teb_b8};
+			\addplot+[black, every mark/.append style={solid}, mark=otimes, mark size=1.41pt, error bars/.cd, y dir=both, y explicit, ] table[col sep=comma,x=distanceFactor, y=meanTemp,y error=meanTempSD] {sources/figure11/rad_results_staggered_080_transposed.csv};
+%			\label{p:teb_ref};
+
+			\coordinate (c3) at (rel axis cs:1,1);
+
+\node[
+	rectangle,
+	draw=black, thin,
+	fill=white,
+	anchor= north east,
+	inner sep=1pt,
+	on layer=foreground,
+	] at (c3) {
+	\tikz[node distance=0.1cm]{
+		\node (L1) [inner sep=3pt] {
+			\renewcommand\arraystretch{0.5}\setlength{\tabcolsep}{2pt}
+			\begin{tabular}{rccc}
+				\scalebox{.6}{\gls{radius} / \si{\meter}}& \scalebox{.6}{0.04} & \scalebox{.6}{0.063} & \scalebox{.6}{0.08} \\
+				\scalebox{.6}{staggered}	& \ref*{p:teb_b4} 	& \ref*{p:teb_b6} 	& \ref*{p:teb_b8}  \\
+			\end{tabular}
+		};
+	
+		\node (L2) [below=0pc and 4pc of L1, anchor=north,inner sep=3pt] {
+			\renewcommand\arraystretch{0.5}\setlength{\tabcolsep}{2pt}
+			\begin{tabular}{rc}
+				\scalebox{.6}{ Liesche (2019)} & \ref{p:teb_ref} \\
+			\end{tabular}
+		}
+	}
+};
+
+	\end{axis};
+
+\end{tikzpicture}

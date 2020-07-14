@@ -1,0 +1,591 @@
+Starting local server: /mechthild/home/engel/local/StarCCM/13.02.013-R8/STAR-CCM+13.02.013-R8/star/bin/starccm+ -licpath 1999@flex.cd-adapco.com -power -podkey kIiLfVCy39G0dA+lA0MonQ -collab -mpi intel -np 48 -machinefile /mechthild/home/engel/projects/tbr/meshDep/mflow005/styleA/m1/machinefile.56128.txt -new -server -rsh /usr/bin/ssh
+Starting STAR-CCM+ parallel server
+MPI Distribution : Intel MPI-2017.2
+Host 0 -- bigmem126 -- Ranks 0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45
+Host 1 -- bigmem127 -- Ranks 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46
+Host 2 -- bigmem128 -- Ranks 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47
+Process rank 0 bigmem126 264029
+Total number of processes : 48
+
+STAR-CCM+ 13.02.013 (linux-x86_64-2.12/gnu6.2-r8)
+License build date: 02 February 2017
+This version of the code requires license version 2018.02 or greater.
+Checking license file: 1999@flex.cd-adapco.com
+Checking license file: 1999@mechthild01.service
+Unable to list features for license file 1999@mechthild01.service.
+1 copy of ccmppower checked out from 1999@flex.cd-adapco.com
+Feature ccmppower expires in 129 days
+Fri Feb 22 15:45:52 2019
+
+Server::start -host bigmem126.service:47827
+Enabling MPI communication timer.
+Turning on communication timer.
+Playing macro: /mechthild/home/engel/projects/tbr/meshDep/mflow005/styleA/m1/reactor.java
+/mechthild/home/engel/projects/tbr/meshDep/mflow005/styleA/m1/reactor.java:532: warning: [deprecation] getMaterialDataBase(java.lang.String) in star.material.MaterialDataBaseManager has been deprecated
+    star.material.MaterialDataBase materialMaterialDataBase_0 = sim.get(MaterialDataBaseManager.class).getMaterialDataBase("props");
+                                                                                                      ^
+Note: /mechthild/home/engel/projects/tbr/meshDep/mflow005/styleA/m1/reactor.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+2019/02/22 15:45:58: Beginning CAD creation.
+2019/02/22 15:45:58: Loading pipe coordinates
+Loading module: CadModeler
+Loading module: MeshingSurfaceRepair
+Started Parasolid modeler version 30.00.269
+Building the base geometry
+2019/02/22 15:45:59: Building inlet geometry.
+2019/02/22 15:46:00: Building outlet geometry.
+2019/02/22 15:46:00: Building Main geometry.
+Uniting the base geometry
+Building the pipe geometries
+2019/02/22 15:46:01: Creating Pipes.
+2019/02/22 15:46:02: Created 5 Pipes.
+2019/02/22 15:46:02: Checking whether two pipes are intersecting with each other.
+2019/02/22 15:46:02: Checking for Pipe-Wall-Interactions
+2019/02/22 15:46:02: Checking whether all Pipes are inside the domain.
+2019/02/22 15:46:02: Starting to Mesh.
+No coincident faces or edges found.
+Total number of new parts created: 1
+Badge for 2D Meshing operation ...
+Badge for 2D Meshing operation completed in CPU Time: 0.02, Wall Time: 0.01, Memory: 1150.26 MB
+No Interfaces were created
+Loading module: StarTwodmesher
+All input parts have been badged for 2D Meshing, the volume mesh will be automatically converted to 2D.
+----------------------------------------
+Executing Automated Mesh Operation: Automated Mesh (2D)
+----------------------------------------
+Checking mesh-CAD association...
+   done.  No problems found.
+Creating the 2.5d surface slice before remeshing...
+   Done.
+----------------------------------------
+Preparing surface for surface meshing in Parts: 
+----------------------------------------
+
+----------------------------------------
+finished preparing surface for surface meshing CPU Time: 0.01, Wall Time: 0.01, Memory: 1183.63 MB
+----------------------------------------
+Projecting to CAD geometry
+----------------------------------------
+Executing Surface Remesher
+----------------------------------------
+
+Face Quality    Faces    Percent
+  < 0.001           8       0.9
+  < 0.01          552      59.9
+  < 0.1           902      97.8
+  < 0.2           904      98.0
+  < 0.3           905      98.2
+  < 0.4           909      98.6
+  < 0.5           911      98.8
+  < 0.6           917      99.5
+  < 0.7           918      99.6
+  < 0.8           918      99.6
+  < 0.9           921      99.9
+  < 1.0           922     100.0
+Worst quality is 0.0005577
+initial number of faces: 3668
+   
+starting: Apply Global Limits
+
+   Face Quality    Faces    Percent
+     < 0.001           0       0.0
+     < 0.01            0       0.0
+     < 0.1             7       0.1
+     < 0.2           436       7.5
+     < 0.3           964      16.7
+     < 0.4          1010      17.4
+     < 0.5          1063      18.4
+     < 0.6          1265      21.9
+     < 0.7          1667      28.8
+     < 0.8          2474      42.7
+     < 0.9          3987      68.9
+     < 1.0          5788     100.0
+   Worst quality is 0.07281
+   
+starting: Improve Grading
+      current number of faces: 20000
+      current number of faces: 40000
+      current number of faces: 80000
+
+   Face Quality    Faces    Percent
+     < 0.001           0       0.0
+     < 0.01            0       0.0
+     < 0.1             0       0.0
+     < 0.2             0       0.0
+     < 0.3             0       0.0
+     < 0.4             0       0.0
+     < 0.5            56       0.1
+     < 0.6           851       1.2
+     < 0.7          2925       4.2
+     < 0.8          9249      13.3
+     < 0.9         32379      46.7
+     < 1.0         69378     100.0
+   Worst quality is 0.4478
+   
+starting: Improve Quality
+
+   Post-processing
+      no intersections found
+      0 faces with quality below 0.2
+
+Face Quality    Faces    Percent
+  < 0.001           0       0.0
+  < 0.01            0       0.0
+  < 0.1             0       0.0
+  < 0.2             0       0.0
+  < 0.3             0       0.0
+  < 0.4             0       0.0
+  < 0.5             0       0.0
+  < 0.6             0       0.0
+  < 0.7            64       0.1
+  < 0.8          2436       3.5
+  < 0.9         17073      24.3
+  < 1.0         70368     100.0
+Worst quality is 0.6025
+final number of faces: 81558
+Aligned mesh not created for any surfaces.
+No thin surfaces removed.
+----------------------------------------
+Surface Remesher Completed: CPU Time: 8.19, Wall Time: 5.50, Memory: 2238.21 MB
+----------------------------------------
+
+Executing the 2d mesher...
+
+
+Preparing surface for 2d meshing...
+Fixing non-manifold surface, CPU Time: 0.05, Wall Time: 0.05, Memory: 2253.73 MB
+Surface is valid for volume meshing.
+
+  done,  CPU Time: 1.19, Wall Time: 1.21, Memory: 2268.99 MB
+User set distribution function to be  GEOMETRIC PROGRESSION
+----------------------------------------
+Executing Prism Layer Subsurface
+----------------------------------------
+Global Input surface contains 146616 faces, and 73300 vertices 
+   done, CPU Time: 0.10, Wall Time: 0.11, Memory: 2286.16 MB
+ Building preprocessor done 
+Computing vertex normals
+ Exchanged the remote active status done
+Computing the normals done
+   done, CPU Time: 0.05, Wall Time: 0.10, Memory: 2287.06 MB
+Computing Vertex normals done
+Computing surface proximity
+   done, CPU Time: 0.27, Wall Time: 0.27, Memory: 2287.06 MB
+Constraining boundary vertices
+   done, CPU Time: 0.04, Wall Time: 0.04, Memory: 2287.06 MB
+
+Iteration 1:
+-------------
+Initializing final vertex normals
+Creating subsurface (updating 5724 of 5724 active vertices)
+Checking 5720 face-based validity metrics
+   found 16 invalid faces
+Preparing for next iteration
+
+Iteration 2:
+-------------
+Initializing final vertex normals
+Creating subsurface (updating 244 of 5724 active vertices)
+Checking 248 face-based validity metrics
+   found 0 invalid faces
+Checking vertex intersections for all vertices
+
+Using edge recovery to fix prism layer boundaries...
+Recovering edges...  num Not Recovered 0
+Edges not recovered  0
+ Grow affected faces......
+Remeshing surface near recovered edges...
+Surface remeshed.  7334 faces added to surface.
+CPU Time: 1.51, Wall Time: 1.52, Memory: 2328.36 MB
+ Finished two levels of remeshing 
+Edge recovery was successful.
+CPU Time: 2.98, Wall Time: 2.99, Memory: 2328.36 MB
+
+Checking true subsurface intersections for all vertices
+ no intersections 
+   found 0 intersecting vertices
+Checking subsurface orientation!!
+
+Iterations successful
+
+Combining interface maps
+   done, CPU Time: 0.00, Wall Time: 0.00, Memory: 2328.36 MB
+Marking zero layer regions
+   found 0 collapsed faces
+   found 2 edges bounding collapsed regions
+   found 4 vertices bounding collapsed regions
+Global Subsurface contains 91586 faces, and 45785 vertices 
+----------------------------------------
+Prism Layer Subsurface Completed: CPU Time: 6.01, Wall Time: 6.10, Memory: 2328.36 MB
+----------------------------------------
+ Generating dual core mesh...
+ Created 30566 dual faces, and 58218 dual verts.
+Created 24726 cells
+   finished generating poly core mesh CPU Time: 0.50, Wall Time: 0.50, Memory: 2318.66 MB
+----------------------------------------
+Executing Prism Layer Extrusion
+----------------------------------------
+Marking vertices, edges and faces to extrude
+   found 4 zero layer subsurface vertices
+   done, CPU Time: 0.03, Wall Time: 0.04, Memory: 2318.66 MB
+Modifying number of layers for cells adjacent to retracted regions
+   modified number of layers for 4 faces
+Creating extrusion layer mesh
+   default number of layers = 35
+   default stretching = 1.2
+   done, CPU Time: 0.00, Wall Time: 0.00, Memory: 2318.66 MB
+ chopping percentage set to 50
+Extrusion mesh contains:
+   99568 cells
+   401308 faces
+   506928 edges
+   205190 vertices
+----------------------------------------
+Prism Layer Extrusion Completed: CPU Time: 0.43, Wall Time: 0.44, Memory: 2318.66 MB
+----------------------------------------
+
+2d mesh generation completed.  CPU Time: 8.96, Wall Time: 9.06, Memory: 2318.66 MB
+
+
+The following regions were moved into the "Parts Meshes" continuum because 
+they are associated with geometry parts that are assigned to a volume meshing operation:  
+  Base
+
+Converting mesh into finite volume representation in Region Base
+   Performing conversion to 2D mesh
+   Converted mesh for Base CPU Time: 0.87, Wall Time: 0.88, Memory: 2357.16 MB
+
+ Partitioning Base (124302 cells)
+Mesh conversion completed, CPU Time: 1.20, Wall Time: 1.27, Memory: 2364.10 MB
+Volume Meshing Pipeline Completed: CPU Time: 10.44, Wall Time: 10.65, Memory: 2364.10 MB
+	Cells: 124302	Faces: 270448	Vertices: 149198
+----------------------------------------
+Automated Mesh Operation: Automated Mesh (2D) complete. CPU Time: 18.86, Wall Time: 16.36, Memory: 2364.10 MB
+----------------------------------------
+2019/02/22 15:46:19: Meshing done.
+
+Boundaries of region Base:
+Boundary WALL: 2406 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [-5.0000000000e-01, 3.1000000000e+00] m
+  y: [-1.0500000000e+00, 1.0500000000e+00] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 1.2000000000e+01 m^2
+   Setting pro-STAR cell IDs on Base starting at 1
+ maximum boundary skewness angle = 4.0332068132e+01 deg in cell with pro-STAR Cell ID 106547
+Boundary Inlet: 95 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [-5.0000000000e-01, -5.0000000000e-01] m
+  y: [8.5000000000e-01, 1.0500000000e+00] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 2.0000000000e-01 m^2
+ maximum boundary skewness angle = 1.6145266093e+01 deg in cell with pro-STAR Cell ID 70104
+Boundary Outlet: 95 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [-5.0000000000e-01, -5.0000000000e-01] m
+  y: [-1.0500000000e+00, -8.5000000000e-01] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 2.0000000000e-01 m^2
+ maximum boundary skewness angle = 1.6096476612e+01 deg in cell with pro-STAR Cell ID 38783
+Boundary PWALL_5: 92 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [2.0840850797e+00, 2.2299149206e+00] m
+  y: [-7.2914924889e-02, 7.2911087834e-02] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 4.5831600527e-01 m^2
+ maximum boundary skewness angle = 4.2342342130e-02 deg in cell with pro-STAR Cell ID 101366
+Boundary PWALL_4: 92 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [1.7555850807e+00, 1.9014149171e+00] m
+  y: [-7.2914933626e-02, 7.2914872842e-02] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 4.5831600322e-01 m^2
+ maximum boundary skewness angle = 5.1633879459e-02 deg in cell with pro-STAR Cell ID 54473
+Boundary PWALL_3: 92 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [1.4270824457e+00, 1.5729149160e+00] m
+  y: [-7.2914914179e-02, 7.2914934289e-02] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 4.5831603924e-01 m^2
+ maximum boundary skewness angle = 3.5107923114e-02 deg in cell with pro-STAR Cell ID 72756
+Boundary PWALL_2: 92 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [1.0985889122e+00, 1.2444110878e+00] m
+  y: [-7.2911320644e-02, 7.2914986587e-02] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 4.5831596913e-01 m^2
+ maximum boundary skewness angle = 4.9363117114e-02 deg in cell with pro-STAR Cell ID 75473
+Boundary PWALL_1: 92 faces
+ Face partition distribution : 
+   -------------------------
+   |Worker rank |No. Faces |
+   -------------------------
+   -------------------------
+   Average number of faces :         0
+
+
+ Extents:
+  x: [7.7008508781e-01, 9.1591108783e-01] m
+  y: [-7.2914894540e-02, 7.2914935393e-02] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ surface area: 4.5831600863e-01 m^2
+ maximum boundary skewness angle = 5.1612024621e-02 deg in cell with pro-STAR Cell ID 78076
+
+Region Base: 
+      45 triangular cells
+   99426 quadrilateral cells
+   24831 polygonal cells
+  124302 cells total
+    6725 halo cells
+  270448 interior faces (4866 halo faces)
+  149198 vertices (4915 halo vertices)
+ Cell/Face partition distribution : 
+   --------------------------------------------------------------------------------------------------------
+   |Worker rank |No. Non Halo Cells |No. Halo Cells |% Halo Cells |No. Total Cells |No. Faces |No. BFaces |
+   --------------------------------------------------------------------------------------------------------
+   |          0 |              2642 |           207 |        7.83 |           2849 |     6546 |        38 |
+   |          1 |              2598 |           146 |        5.62 |           2744 |     5891 |        58 |
+   |          2 |              2599 |           113 |        4.35 |           2712 |     5665 |        60 |
+   |          3 |              2505 |           125 |        4.99 |           2630 |     5575 |        52 |
+   |          4 |              2587 |           120 |        4.64 |           2707 |     5680 |        62 |
+   |          5 |              2531 |           115 |        4.54 |           2646 |     5490 |        62 |
+   |          6 |              2522 |           113 |        4.48 |           2635 |     5484 |        63 |
+   |          7 |              2650 |           130 |        4.91 |           2780 |     5934 |        55 |
+   |          8 |              2611 |           134 |        5.13 |           2745 |     5630 |        77 |
+   |          9 |              2585 |           131 |        5.07 |           2716 |     5746 |        47 |
+   |         10 |              2569 |           113 |        4.40 |           2682 |     5478 |        70 |
+   |         11 |              2592 |           134 |        5.17 |           2726 |     5790 |        57 |
+   |         12 |              2595 |           117 |        4.51 |           2712 |     5477 |        65 |
+   |         13 |              2588 |           175 |        6.76 |           2763 |     5764 |        61 |
+   |         14 |              2594 |           119 |        4.59 |           2713 |     5733 |        54 |
+   |         15 |              2594 |            98 |        3.78 |           2692 |     5552 |       166 |
+   |         16 |              2614 |           259 |        9.91 |           2873 |     6677 |        33 |
+   |         17 |              2529 |           124 |        4.90 |           2653 |     5478 |        63 |
+   |         18 |              2619 |           117 |        4.47 |           2736 |     5647 |        68 |
+   |         19 |              2621 |           116 |        4.43 |           2737 |     5750 |        60 |
+   |         20 |              2619 |           310 |       11.84 |           2929 |     7350 |         0 |
+   |         21 |              2587 |           112 |        4.33 |           2699 |     5236 |        92 |
+   |         22 |              2661 |           132 |        4.96 |           2793 |     5550 |        74 |
+   |         23 |              2673 |           124 |        4.64 |           2797 |     5891 |        59 |
+   |         24 |              2623 |           103 |        3.93 |           2726 |     5424 |       129 |
+   |         25 |              2583 |           125 |        4.84 |           2708 |     5380 |        82 |
+   |         26 |              2592 |           171 |        6.60 |           2763 |     5922 |        42 |
+   |         27 |              2627 |           107 |        4.07 |           2734 |     5750 |       105 |
+   |         28 |              2653 |           117 |        4.41 |           2770 |     5399 |        92 |
+   |         29 |              2572 |           150 |        5.83 |           2722 |     5768 |        59 |
+   |         30 |              2538 |           195 |        7.68 |           2733 |     5472 |        71 |
+   |         31 |              2529 |           163 |        6.45 |           2692 |     5870 |        41 |
+   |         32 |              2657 |           122 |        4.59 |           2779 |     5771 |        69 |
+   |         33 |              2652 |           145 |        5.47 |           2797 |     6025 |        53 |
+   |         34 |              2613 |           140 |        5.36 |           2753 |     5867 |        57 |
+   |         35 |              2597 |           113 |        4.35 |           2710 |     5564 |        66 |
+   |         36 |              2564 |           112 |        4.37 |           2676 |     5400 |        76 |
+   |         37 |              2640 |           132 |        5.00 |           2772 |     5951 |        47 |
+   |         38 |              2576 |           117 |        4.54 |           2693 |     5588 |        61 |
+   |         39 |              2618 |           109 |        4.16 |           2727 |     5253 |        92 |
+   |         40 |              2472 |           127 |        5.14 |           2599 |     5450 |        43 |
+   |         41 |              2462 |           123 |        5.00 |           2585 |     5175 |        75 |
+   |         42 |              2672 |           123 |        4.60 |           2795 |     5800 |        66 |
+   |         43 |              2585 |           122 |        4.72 |           2707 |     5574 |        63 |
+   |         44 |              2503 |           169 |        6.75 |           2672 |     5774 |        54 |
+   |         45 |              2590 |           274 |       10.58 |           2864 |     6705 |         0 |
+   |         46 |              2503 |           121 |        4.83 |           2624 |     5295 |        67 |
+   |         47 |              2596 |           161 |        6.20 |           2757 |     6123 |        50 |
+   --------------------------------------------------------------------------------------------------------
+   Average number of non-halo cells :      2589 STDDEV % :  1.93 IMBALANCE % :  3.22
+       Average number of halo cells :       140 STDDEV % : 30.84 IMBALANCE % : 121.26
+      Average number of total cells :      2729 STDDEV % :  2.48 IMBALANCE % :  7.30
+            Average number of faces :      5735 STDDEV % :  6.96 IMBALANCE % : 28.14
+   Average number of boundary faces :        63 STDDEV % : 40.87 IMBALANCE % : 160.73
+   Maximum number of partition neighbours : 12
+
+
+
+ Extents:
+  x: [-5.0000000000e-01, 3.1000000000e+00] m
+  y: [-1.0500000000e+00, 1.0500000000e+00] m
+  z: [0.0000000000e+00, 0.0000000000e+00] m
+ Maximum interior cell index delta: 2655, average: 1.4098407648e+02
+ Maximum cell face index delta: 7273, average: 9.6968038326e+02
+ Volume range: [1.1763186958e-08, 3.2113704378e-03] m^3
+ Minimum volume in cell with pro-STAR Cell ID 106547
+ Minimum distance between centroids of neighbor cells = 7.3440278155e-06
+       between cells with pro-STAR Cell ID 96032 and 93715
+ Maximum skewness angle = 4.3045778403e+01 deg in cell with pro-STAR Cell ID 106219
+
+Face validity: 
+Minimum Face Validity: 1.0000000000e+00
+Maximum Face Validity: 1.0000000000e+00
+        Face Validity <  0.50           0    0.000%
+0.50 <= Face Validity <  0.60           0    0.000%
+0.60 <= Face Validity <  0.70           0    0.000%
+0.70 <= Face Validity <  0.80           0    0.000%
+0.80 <= Face Validity <  0.90           0    0.000%
+0.90 <= Face Validity <  0.95           0    0.000%
+0.95 <= Face Validity <  1.00           0    0.000%
+1.00 <= Face Validity              124302   100.000%
+
+Volume Change: 
+Minimum Volume Change: 2.164637e-02
+Maximum Volume Change: 1.000000e+00
+         Volume Change <  0e+00           0    0.000%
+0e+00 <= Volume Change <  1e-06           0    0.000%
+1e-06 <= Volume Change <  1e-05           0    0.000%
+1e-05 <= Volume Change <  1e-04           0    0.000%
+1e-04 <= Volume Change <  1e-03           0    0.000%
+1e-03 <= Volume Change <  1e-02           0    0.000%
+1e-02 <= Volume Change <  1e-01          17    0.014%
+1e-01 <= Volume Change <= 1e+00      124285   99.986%
+ Maximum boundary skewness angle in region = 4.033207e+01 deg
+
+Overall Face Validity: 
+Minimum Face Validity: 1.000000e+00
+Maximum Face Validity: 1.000000e+00
+        Face Validity <  0.50           0    0.000%
+0.50 <= Face Validity <  0.60           0    0.000%
+0.60 <= Face Validity <  0.70           0    0.000%
+0.70 <= Face Validity <  0.80           0    0.000%
+0.80 <= Face Validity <  0.90           0    0.000%
+0.90 <= Face Validity <  0.95           0    0.000%
+0.95 <= Face Validity <  1.00           0    0.000%
+1.00 <= Face Validity              124302   100.000%
+
+Overall Volume Change: 
+Minimum Volume Change: 2.164637e-02
+Maximum Volume Change: 1.000000e+00
+         Volume Change <  0e+00           0    0.000%
+0e+00 <= Volume Change <  1e-06           0    0.000%
+1e-06 <= Volume Change <  1e-05           0    0.000%
+1e-05 <= Volume Change <  1e-04           0    0.000%
+1e-04 <= Volume Change <  1e-03           0    0.000%
+1e-03 <= Volume Change <  1e-02           0    0.000%
+1e-02 <= Volume Change <  1e-01          17    0.014%
+1e-01 <= Volume Change <= 1e+00      124285   99.986%
+2019/02/22 15:46:19: Setting up Physics Continuum
+Loading module: CoupledFlowModel
+Loading module: KeTurbModel
+Loading module: RadiationCommon
+Loading module: RadiationDoModel
+Reading material property database "/mechthild/home/engel/local/StarCCM/13.02.013-R8/STAR-CCM+13.02.013-R8/star/props.mdb"...
+2019/02/22 15:46:21: Setting up Boundary Conditions
+2019/02/22 15:46:21: Reading value file.
+2019/02/22 15:46:21: Setting total mass flow to: 0.025
+Table file "/mechthild/home/engel/projects/tbr/meshDep/mflow005/styleA/m1/Q_of_T.csv" not found
+Command: CreateFileTable
+   error: Server Error
+Table file "/mechthild/home/engel/projects/tbr/meshDep/mflow005/styleA/m1/Q_of_T.csv" not found
+Command: CreateFileTable
+   error: Server Error
+
+|Global Rank|Server Elapsed Time (s)|Server CPU Time (s)|MPI Overhead (s)|MPI Overhead %Elapsed Time    |
+|          0|                 30.721|             23.340|           1.845|                         6.005|
+|          1|                 30.721|             25.100|          12.741|                        41.474|
+|          2|                 30.721|             25.030|          12.680|                        41.276|
+|          3|                 30.721|             21.780|          12.619|                        41.074|
+|          4|                 30.721|             22.220|          12.670|                        41.241|
+|          5|                 30.721|             22.180|          12.647|                        41.168|
+|          6|                 30.721|             22.000|          12.778|                        41.593|
+|          7|                 30.721|             22.190|          12.583|                        40.960|
+|          8|                 30.721|             22.180|          12.581|                        40.953|
+|          9|                 30.721|             21.720|          12.740|                        41.468|
+|         10|                 30.721|             22.190|          12.658|                        41.201|
+|         11|                 30.721|             22.160|          12.642|                        41.152|
+|         12|                 30.721|             22.050|          12.794|                        41.646|
+|         13|                 30.721|             22.200|          12.687|                        41.297|
+|         14|                 30.721|             22.150|          12.638|                        41.137|
+|         15|                 30.721|             21.670|          12.583|                        40.960|
+|         16|                 30.721|             22.190|          12.565|                        40.902|
+|         17|                 30.721|             22.160|          12.545|                        40.836|
+|         18|                 30.721|             22.180|          12.652|                        41.182|
+|         19|                 30.721|             22.140|          12.635|                        41.128|
+|         20|                 30.721|             22.130|          12.642|                        41.152|
+|         21|                 30.721|             21.800|          12.694|                        41.319|
+|         22|                 30.721|             22.170|          12.643|                        41.156|
+|         23|                 30.721|             22.130|          12.633|                        41.123|
+|         24|                 30.721|             21.860|          12.778|                        41.593|
+|         25|                 30.721|             22.210|          12.706|                        41.357|
+|         26|                 30.721|             22.120|          12.640|                        41.144|
+|         27|                 30.721|             21.330|          12.674|                        41.254|
+|         28|                 30.721|             22.180|          12.654|                        41.191|
+|         29|                 30.721|             22.150|          12.632|                        41.118|
+|         30|                 30.721|             22.250|          12.746|                        41.488|
+|         31|                 30.721|             22.170|          12.476|                        40.611|
+|         32|                 30.721|             22.120|          12.461|                        40.561|
+|         33|                 30.721|             21.620|          12.581|                        40.952|
+|         34|                 30.721|             22.160|          12.542|                        40.826|
+|         35|                 30.721|             22.150|          12.519|                        40.750|
+|         36|                 30.721|             22.240|          12.682|                        41.282|
+|         37|                 30.721|             22.160|          12.555|                        40.869|
+|         38|                 30.721|             22.110|          12.534|                        40.800|
+|         39|                 30.721|             21.830|          12.596|                        41.000|
+|         40|                 30.721|             22.160|          12.634|                        41.126|
+|         41|                 30.721|             22.140|          12.591|                        40.983|
+|         42|                 30.721|             22.130|          12.748|                        41.495|
+|         43|                 30.721|             22.130|          12.616|                        41.066|
+|         44|                 30.721|             22.090|          12.583|                        40.959|
+|         45|                 30.721|             21.750|          12.665|                        41.226|
+|         46|                 30.721|             22.150|          12.637|                        41.135|
+|         47|                 30.721|             22.110|          12.598|                        41.008|
+Maximum worker communication time on rank     : 12  
+Minimum worker communication time on rank     : 0   
+Average worker communication time             : 12.411    
+Standard deviation worker communication times : 1.543     
+Design STAR-CCM+ simulation completed
+Server process exited with code : 0

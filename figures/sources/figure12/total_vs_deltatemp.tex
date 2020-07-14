@@ -1,0 +1,78 @@
+
+\usetikzlibrary{plotmarks}
+\begin{tikzpicture}
+\begin{axis}[
+			width=75mm,
+			height=80mm,     % size of the image
+			grid = major,
+			grid style={line width=.1pt, draw=gray!10},
+			xmin=4000,     % start the diagram at this x-coordinate
+			xmax=27000,    % end   the diagram at this x-coordinate
+			ymin=650,     % start the diagram at this y-coordinate
+			ymax=1400,   % end   the diagram at this y-coordinate
+			axis background/.style={fill=white},
+			xlabel={\gls{heatfluxmean} / \si{\watt}},
+			ylabel={\gls{tempmean} / \si{\kelvin}},
+			ylabel style={align=center},
+			tick align=inside,
+			minor y tick num=3,
+			minor x tick num=1,
+			cycle list name=mpiovgucolors2d,
+%			scaled x ticks=true,
+%			every x tick label/.append style={alias=XTick,inner xsep=0pt},
+%			every x tick scale label/.style={at=(XTick.base east),anchor=base west},
+			% change `clip mode' to `individual' to avoid unwanted clipping
+			clip mode=individual,
+		]
+
+	%% import the correct data from a CSV file
+	\addplot+[only marks, on layer=leins, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseA-0.04.csv};
+		\label{p:tempa4}
+	\addplot+[only marks, on layer=leins, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseA-0.063.csv};
+		\label{p:tempa6}
+	\addplot+[only marks, on layer=leins, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseA-0.08.csv};
+		\label{p:tempa8}
+	\addplot+[only marks, on layer=lzwei, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseB-0.04.csv};
+		\label{p:tempb4}
+	\addplot+[only marks, on layer=lzwei, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseB-0.063.csv};
+		\label{p:tempb6}
+	\addplot+[only marks, on layer=lzwei, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseB-0.08.csv};
+		\label{p:tempb8}
+	\addplot+[only marks, on layer=ldrei, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseC-0.04.csv};
+		\label{p:tempc4}
+	\addplot+[only marks, on layer=ldrei, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseC-0.063.csv};
+		\label{p:tempc6}
+	\addplot+[only marks, on layer=ldrei, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseC-0.08.csv};
+		\label{p:tempc8}
+	\addplot+[only marks, on layer=lvier, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseD-0.04.csv};
+		\label{p:tempd4}
+	\addplot+[only marks, on layer=lvier, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseD-0.063.csv};
+		\label{p:tempd6}
+	\addplot+[only marks, on layer=lvier, error bars/.cd, y dir=both, y explicit, error bar style={line width=0.25pt,opacity=1.0,},error mark options={line width=0.25pt,opacity=1.0,}]  table[x=HeatTransferMean(W),y=MeanTubeTemps(K), y error minus expr={\thisrow{MeanTubeTemps(K)}-\thisrow{MinTubeTemp(K)}}, y error plus expr={\thisrow{MaxTubeTemp(K)}-\thisrow{MeanTubeTemps(K)}}, col sep=semicolon] {sources/figure12/resultsCaseD-0.08.csv};
+		\label{p:tempd8}
+
+	\coordinate (zero) at (axis description cs:1,0);
+	\node[anchor=south east,rectangle,draw=black,thin,fill=white,inner sep=2pt] (legend) at ([yshift=5pt,xshift=-5pt]zero) {\renewcommand\arraystretch{0.5}\setlength{\tabcolsep}{3pt}\begin{tabular}{rccc}
+		\tiny \gls{radius} / \si{\meter}	& \tiny 0.04 	& \tiny 0.063 	& \tiny 0.08 \\
+		\tiny  line 		& \ref*{p:tempa4} 	& \ref*{p:tempa6} 	& \ref*{p:tempa8} \\
+		\tiny staggered 	& \ref*{p:tempb4} 	& \ref*{p:tempb6} 	& \ref*{p:tempb8} \\
+		\tiny aligned 		& \ref*{p:tempc4} 	& \ref*{p:tempc6} 	& \ref*{p:tempc8} \\
+		\tiny rectangle 	& \ref*{p:tempd4} 	& \ref*{p:tempd6} 	& \ref*{p:tempd8} \\
+		\end{tabular}
+	};
+
+	\draw [densely dashed,red, thick] (0.4e4,1200) -- (2.7e4,1200);
+	\draw [loosely dashed,black,thick] (0.4e4,1000) -- (2.7e4,1000);
+	
+	\node [anchor=north west] at (1.5e4,1400) {\scalebox{.6}{$0.04$}};
+	\node [anchor=north] at (2.3e4,1140) {\scalebox{.6}{$0.063$}};
+	\node [anchor=north] at (2.6e4,1075) {\scalebox{.6}{$0.08$}};
+	
+	\node [anchor=south east] at (2.7e4,1200) {\color{red} \scalebox{.6}{overheating}};
+	
+	\node [anchor=north east, on layer=foreground] at (2.7e4,1000) {\scalebox{.6}{catalyst too cold}};
+	
+	\coordinate (e1) at (2.7e4,1100);
+\end{axis}
+\node [anchor=west] at (e1) {\rotatebox{90}{\scalebox{.6}{target operation}}};
+\end{tikzpicture}

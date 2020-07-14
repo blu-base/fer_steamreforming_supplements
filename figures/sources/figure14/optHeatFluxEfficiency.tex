@@ -1,0 +1,79 @@
+
+
+\begin{tikzpicture}
+\begin{axis}[
+		width=80mm, 
+		height=85mm,
+     % size of the image
+		grid = major,
+		grid style={line width=.1pt, draw=gray!10},
+		xmin=4000,     % start the diagram at this x-coordinate
+		xmax=30000,    % end   the diagram at this x-coordinate
+		%xtick={800,1000,...,1800},
+		ymin=0,     % start the diagram at this y-coordinate
+		ymax=2500000,   % end   the diagram at this y-coordinate
+		axis background/.style={fill=white},
+		xlabel={\gls{heatfluxmean} / \si{\watt}},
+		ylabel={\gls{heatfluxtotalpermflow} / \si{\watt\per\kilogram\per\second}},
+		ylabel style={align=center},
+		tick align=inside,
+		minor y tick num=4,
+		minor x tick num=1,
+		cycle list name=mpiovgucolors2d,
+%		scaled x ticks=true,
+%		every x tick label/.append style={alias=XTick,inner xsep=0pt},
+%		every x tick scale label/.style={at=(XTick.base east),anchor=base west},
+		% change `clip mode' to `individual' to avoid unwanted clipping
+%			clip mode=individual,
+		clip mode=individual,
+		yshift=-1mm,
+		]
+
+	%% import the correct data from a CSV file
+	\addplot+[only marks, on layer=leins]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseA-0.04.csv};
+		\label{p:thf2mfa4}
+	\addplot+[only marks, on layer=leins]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseA-0.063.csv};
+		\label{p:thf2mfa6}
+	\addplot+[only marks, on layer=leins]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseA-0.08.csv};
+		\label{p:thf2mfa8}
+	\addplot+[only marks, on layer=lzwei]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseB-0.04.csv};
+		\label{p:thf2mfb4}
+	\addplot+[only marks, on layer=lzwei]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseB-0.063.csv};
+		\label{p:thf2mfb6}
+	\addplot+[only marks, on layer=lzwei]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseB-0.08.csv};
+		\label{p:thf2mfb8}
+	\addplot+[only marks, on layer=ldrei]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseC-0.04.csv};
+		\label{p:thf2mfc4}
+	\addplot+[only marks, on layer=ldrei]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseC-0.063.csv};
+		\label{p:thf2mfc6}
+	\addplot+[only marks, on layer=ldrei]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseC-0.08.csv};
+		\label{p:thf2mfc8}
+	\addplot+[only marks, on layer=lvier]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseD-0.04.csv};
+		\label{p:thf2mfd4}
+	\addplot+[only marks, on layer=lvier]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseD-0.063.csv};
+		\label{p:thf2mfd6}
+	\addplot+[only marks, on layer=lvier]  table[x=HeatTransferMean(W),y=HeatTransferPerMassFlow( W / kg/s),col sep=semicolon] {sources/figure14/resultsCaseD-0.08.csv};
+		\label{p:thf2mfd8}
+			
+	% mark massflow rates
+	\addplot[dashed,very thin,domain=4000:11500,restrict y to domain*=0:2.5e6,on layer=main] {200*x} node [above] {\scriptsize $0.005$};
+	\addplot[dashed,very thin,domain=4000:15000,restrict y to domain*=0:2.5e6,on layer=main] {100*x} node [above] {\scriptsize $0.010$};
+	\addplot[dashed,very thin,domain=4000:20000,on layer=main] {68*x} node [above] {\scriptsize $0.015$};
+	\addplot[dashed,very thin,domain=4000:24000,on layer=main] {50*x} node [above] {\scriptsize $0.020$};
+	\addplot[dashed,very thin,domain=4000:22500,on layer=main] {40*x} node [above,anchor=south west] {\scriptsize $0.025$};
+	\addplot[dashed,very thin,domain=4000:28000,on layer=main] {33*x} node [above] {\scriptsize $0.030$};
+	\addplot[dashed,very thin,domain=4000:28000,on layer=main] {29*x} node [below,anchor=north] {\scriptsize $0.035$};
+	
+	\coordinate (zero) at (axis description cs:1,1);
+	\node[anchor=north east,rectangle,draw=black,thin,fill=white,inner sep=0.1pc] (legend) at ([yshift=-5pt,xshift=-5pt]zero) {
+		\renewcommand\arraystretch{0.75}\setlength{\tabcolsep}{0.5pc}\begin{tabular}{rccc}
+		\tiny \gls{radius} / \si{\meter}	& \tiny 0.04 	& \tiny 0.063 	& \tiny 0.08 \\
+		\tiny  line 		& \ref*{p:thf2mfa4} 	& \ref*{p:thf2mfa6} 	& \ref*{p:thf2mfa8} \\
+		\tiny staggered 	& \ref*{p:thf2mfb4} 	& \ref*{p:thf2mfb6} 	& \ref*{p:thf2mfb8} \\
+		\tiny aligned 		& \ref*{p:thf2mfc4} 	& \ref*{p:thf2mfc6} 	& \ref*{p:thf2mfc8} \\
+		\tiny rectangle 	& \ref*{p:thf2mfd4} 	& \ref*{p:thf2mfd6} 	& \ref*{p:thf2mfd8} \\
+		\end{tabular}
+	};
+
+\end{axis};%
+\end{tikzpicture}

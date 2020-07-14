@@ -1,0 +1,50 @@
+\usetikzlibrary{shapes.geometric, arrows,positioning,calc}
+\begin{tikzpicture}
+[
+	inner sep=0pt,
+ 	every node/.style={inner sep=0,outer sep=0},
+]
+
+\node (n1a)  []                               {\includegraphics[height=3.8cm]{sources/figure8/c-vel_1.jpg}};
+% \node (n2a)  [below=0cm of n1a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_2.jpg}};
+\node (n3a)  [below=0cm of n1a]               {\includegraphics[height=3.8cm]{sources/figure8/c-vel_3.jpg}};
+% \node (n4a)  [below=0cm of n3a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_4.jpg}};
+\node (n5a)  [below=0cm of n3a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_5.jpg}};
+% \node (n6a)  [below=0cm of n5a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_6.jpg}};
+\node (n7a)  [below=0cm of n5a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_7.jpg}};
+% \node (n8a)  [below=0cm of n7a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_8.jpg}};
+% \node (n9a)  [below=0cm of n8a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_9.jpg}};
+\node (n10a) [below=0cm of n7a,anchor=north]  {\includegraphics[height=3.8cm]{sources/figure8/c-vel_10.jpg}};
+\node (n11a) [below=0cm of n10a,anchor=north] {\includegraphics[height=3.8cm]{sources/figure8/c-vel_11.jpg}};
+% \node (n12a) [below=0cm of n11a,anchor=north] {\includegraphics[height=3.8cm]{sources/figure8/c-vel_12.jpg}};
+
+
+\node (n1b)  [right=0.05cm of n1a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_1.jpg}};
+% \node (n2b)  [right=0.05cm of n2a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_2.jpg}};
+\node (n3b)  [right=0.05cm of n3a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_3.jpg}};
+% \node (n4b)  [right=0.05cm of n4a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_4.jpg}};
+\node (n5b)  [right=0.05cm of n5a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_5.jpg}};
+% \node (n6b)  [right=0.05cm of n6a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_6.jpg}};
+\node (n7b)  [right=0.05cm of n7a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_7.jpg}};
+% \node (n8b)  [right=0.05cm of n8a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_8.jpg}};
+% \node (n9b)  [right=0.05cm of n9a]   {\includegraphics[height=3.8cm]{sources/figure8/c-temp_9.jpg}};
+\node (n10b) [right=0.05cm of n10a]  {\includegraphics[height=3.8cm]{sources/figure8/c-temp_10.jpg}};
+\node (n11b) [right=0.05cm of n11a]  {\includegraphics[height=3.8cm]{sources/figure8/c-temp_11.jpg}};
+% \node (n12b) [right=0.05cm of n12a] {\includegraphics[height=3.8cm]{sources/figure8/c-temp_12.jpg}};
+
+
+
+\node (n1c) [right=0.25cm of n1b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=1.25$ \\ $\gls{heatfluxratio}$&$=95.24\%$ \\ $\gls{heatfluxmean}$&$=11870\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.52$ \\ \end{tabular}}}};
+% \node (n2c) [right=0.25cm of n2b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=1.50$ \\ $\gls{heatfluxratio}$&$=95.60\%$ \\ $\gls{heatfluxmean}$&$=13233\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.46$ \\ \end{tabular}}}};
+\node (n3c) [right=0.25cm of n3b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=1.75$ \\ $\gls{heatfluxratio}$&$=95.78\%$ \\ $\gls{heatfluxmean}$&$=14166\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.41$ \\ \end{tabular}}}};
+% \node (n4c) [right=0.25cm of n4b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=2.00$ \\ $\gls{heatfluxratio}$&$=95.61\%$ \\ $\gls{heatfluxmean}$&$=15006\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.37$ \\ \end{tabular}}}};
+\node (n5c) [right=0.25cm of n5b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=2.25$ \\ $\gls{heatfluxratio}$&$=95.47\%$ \\ $\gls{heatfluxmean}$&$=15711\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.33$ \\ \end{tabular}}}};
+% \node (n6c) [right=0.25cm of n6b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=2.375$ \\ $\gls{heatfluxratio}$&$=95.23\%$ \\ $\gls{heatfluxmean}$&$=16018\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.31$ \\ \end{tabular}}}};
+\node (n7c) [right=0.25cm of n7b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=2.50$ \\ $\gls{heatfluxratio}$&$=94.69\%$ \\ $\gls{heatfluxmean}$&$=16200\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.30$ \\ \end{tabular}}}};
+% \node (n8c) [right=0.25cm of n8b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=2.75$ \\ $\gls{heatfluxratio}$&$=93.31\%$ \\ $\gls{heatfluxmean}$&$=16718\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.27$ \\ \end{tabular}}}};
+% \node (n9c) [right=0.25cm of n9b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=3.00$ \\ $\gls{heatfluxratio}$&$=92.89\%$ \\ $\gls{heatfluxmean}$&$=17118\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.25$ \\ \end{tabular}}}};
+\node (n10c) [right=0.25cm of n10b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=3.50$ \\ $\gls{heatfluxratio}$&$=91.88\%$ \\ $\gls{heatfluxmean}$&$=17319\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.22$ \\ \end{tabular}}}};
+\node (n11c) [right=0.25cm of n11b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=4.00$ \\ $\gls{heatfluxratio}$&$=91.92\%$ \\ $\gls{heatfluxmean}$&$=17920\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.19$ \\ \end{tabular}}}};
+% \node (n12c) [right=0.25cm of n12b,align=left] {\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{1pt}{\scalebox{1.0}{\begin{tabular}{ll}\gls{distancefactor}&$=4.25$ \\ $\gls{heatfluxratio}$&$=91.31\%$ \\ $\gls{heatfluxmean}$&$=15506\si{\watt}$ \\ $\gls{viewfactormean}$&$=0.18$ \\ \end{tabular}}}};
+
+\end{tikzpicture}

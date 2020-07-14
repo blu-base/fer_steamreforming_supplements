@@ -1,0 +1,96 @@
+
+
+\begin{tikzpicture}
+%\pgfplotsset{set layers=default};
+\begin{axis}[
+			width=80mm,
+			height=60mm,     % size of the image
+			grid = major,
+			grid style={line width=.1pt, draw=gray!10},
+			xmin=4000,     % start the diagram at this x-coordinate
+			xmax=27000,    % end   the diagram at this x-coordinate
+			ymin=87,     % start the diagram at this y-coordinate
+			ymax=100,   % end   the diagram at this y-coordinate
+			axis background/.style={fill=white},
+			xlabel={\gls{heatfluxmean} / \si{\watt}},
+			ylabel={\gls{heatfluxratio} / \si{\percent}},
+			ylabel style={align=center},
+			tick align=inside,
+			minor x tick num=1,
+			minor y tick num=1,
+			cycle list name=mpiovgucolors2d,
+%			scaled x ticks=true,
+%			every x tick label/.append style={alias=XTick,inner xsep=0pt},
+%			every x tick scale label/.style={at=(XTick.base east),anchor=base west},
+			% change `clip mode' to `individual' to avoid unwanted clipping
+			clip mode=individual,
+			]
+
+	%% import the correct data from a CSV file
+	\addplot+[scatter=true,only marks, on layer=leins,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseA-0.04.csv};
+		\label{p:hfra4}
+	\addplot+[scatter=true,only marks, on layer=leins,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseA-0.063.csv};
+		\label{p:hfra6}
+	\addplot+[scatter=true,only marks, on layer=leins,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseA-0.08.csv};
+		\label{p:hfra8}
+	\addplot+[scatter=true,only marks, on layer=lzwei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseB-0.04.csv};
+		\label{p:hfrb4}
+	\addplot+[scatter=true,only marks, on layer=lzwei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseB-0.063.csv};
+		\label{p:hfrb6}
+	\addplot+[scatter=true,only marks, on layer=lzwei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseB-0.08.csv};
+		\label{p:hfrb8}
+	\addplot+[scatter=true,only marks, on layer=ldrei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseC-0.04.csv};
+		\label{p:hfrc4}
+	\addplot+[scatter=true,only marks, on layer=ldrei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseC-0.063.csv};
+		\label{p:hfrc6}
+	\addplot+[scatter=true,only marks, on layer=ldrei,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseC-0.08.csv};
+		\label{p:hfrc8}
+	\addplot+[scatter=true,only marks, on layer=lvier,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseD-0.04.csv};
+		\label{p:hfrd4}
+	\addplot+[scatter=true,only marks, on layer=lvier,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseD-0.063.csv};
+		\label{p:hfrd6}
+	\addplot+[scatter=true,only marks, on layer=lvier,point meta=explicit symbolic,scatter/@pre marker code/.style={/tikz/mark size=sqrt(\pgfplotspointmeta/\PI)*25}, scatter/@post marker code/.style={}]  table[x=HeatTransferMean(W),y=HeatFluxRatio (Rad/Total),meta=MassFlowPerTube (kg/s),col sep=semicolon] {sources/figure7/resultsCaseD-0.08.csv};
+		\label{p:hfrd8}
+			
+
+	% Coordinates for the external legend
+	\coordinate (zero) at (axis description cs:0.5,0);
+	
+	\draw[dashed] (2.5e4,94) .. controls (0.5e4,93.5)   .. (0.45e4,93);
+	
+	\node [anchor=west]at (0.75e4,89) {\scalebox{.6}{with tubes in flue gas stream}};
+	
+	\node [anchor=east]at (2.6e4,99) {\scalebox{.6}{mostly undisturbed flue gas flow}};
+	
+\end{axis}
+
+
+\node[anchor=north,rectangle,draw=black,thin,inner sep=1pt] at (zero |- current bounding box.south) {
+	\tikz{
+		\node (L1) {
+			\renewcommand\arraystretch{0.8}\setlength{\tabcolsep}{3pt}
+			\begin{tabular}{rccc}
+				\rotatebox{90}{~\rotatebox{-90}{\scriptsize \gls{radius} / \si{\meter}}}& \rotatebox{90}{\scalebox{.6}{0.04}} & \rotatebox{90}{\scalebox{.6}{0.063}} & \rotatebox{90}{\scalebox{.6}{0.08}} \\
+%				\midrule
+				\scriptsize  line 		& \ref*{p:hfra4} 	& \ref*{p:hfra6} 	& \ref*{p:hfra8} \\
+				\scriptsize staggered 	& \ref*{p:hfrb4} 	& \ref*{p:hfrb6} 	& \ref*{p:hfrb8} \\
+				\scriptsize aligned 		& \ref*{p:hfrc4} 	& \ref*{p:hfrc6} 	& \ref*{p:hfrc8} \\
+				\scriptsize rectangle 	& \ref*{p:hfrd4} 	& \ref*{p:hfrd6} 	& \ref*{p:hfrd8} \\
+			\end{tabular}
+		};
+		\node[right of=L1,xshift=1cm,anchor=west] {
+			\tikz[]{
+				\draw(0,0)--(0,1.5);
+				\foreach \y/\ytext in {0/~,0.25/0.01,0.50/~,0.75/0.02,1.00/~,1.25/0.03,1.50/~}
+				\draw(-2pt,\y)--(2pt,\y) node[right] {\tiny\ytext};
+				
+				\foreach \y/\ytext in {0/1.00pt,.25/1.41pt,.50/1.73pt,.75/1.99pt,1.00/2.23pt,1.25/2.44pt,1.50/2.64pt}
+				\draw[black!40] (-6pt,\y) circle (\ytext);
+				
+				\node[anchor=south,rotate=90,inner sep=0pt] at (-15pt,0.75) {\scalebox{.6}{\gls{massflow} / \si{\kilogram\per\second\per{tube}}}}
+			}
+		};
+	}
+};
+
+\end{tikzpicture}
